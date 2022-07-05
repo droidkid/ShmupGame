@@ -25,6 +25,7 @@ class Layer {
 	public function initCamera() {}
 	public function resizeCamera() {}
 	public function updateCamera(dt: Float) {}
+    public function update(dt: Float) {}
 
     public static function initAllCameras() {
         for (layer in ALL) {
@@ -50,5 +51,11 @@ class Layer {
 
     public static function initAll() {
         Registry.initLayers();
+    }
+
+    public static function updateAll(dt: Float) {
+        for (layer in ALL) {
+            layer.update(dt);
+        }
     }
 }

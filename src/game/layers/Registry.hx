@@ -7,5 +7,6 @@ class Registry {
         new Background(BACKGROUND);
         new GameLayer(GAME);
         new Layer(HUD);
+        new CollisionBoxes(COLLISION_BOXES);
     }
 }

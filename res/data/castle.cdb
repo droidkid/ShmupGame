@@ -11,6 +11,11 @@
 					"typeStr": "14",
 					"name": "sprite",
 					"display": null
+				},
+				{
+					"typeStr": "9:CollisionBox",
+					"name": "collisionbox",
+					"display": null
 				}
 			],
 			"lines": [
@@ -21,7 +26,14 @@
 						"size": 32,
 						"x": 0,
 						"y": 1
-					}
+					},
+					"collisionbox": [
+						0,
+						10,
+						8,
+						11,
+						15
+					]
 				},
 				{
 					"id": "Bullet",
@@ -30,7 +42,14 @@
 						"size": 16,
 						"x": 0,
 						"y": 0
-					}
+					},
+					"collisionbox": [
+						0,
+						5,
+						1,
+						6,
+						14
+					]
 				}
 			],
 			"separators": [],
@@ -153,6 +172,33 @@
 			"props": {}
 		}
 	],
-	"customTypes": [],
+	"customTypes": [
+		{
+			"name": "CollisionBox",
+			"cases": [
+				{
+					"name": "Box",
+					"args": [
+						{
+							"name": "x",
+							"typeStr": "3"
+						},
+						{
+							"name": "y",
+							"typeStr": "3"
+						},
+						{
+							"name": "width",
+							"typeStr": "3"
+						},
+						{
+							"name": "height",
+							"typeStr": "3"
+						}
+					]
+				}
+			]
+		}
+	],
 	"compress": false
 }

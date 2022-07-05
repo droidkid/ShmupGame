@@ -9,6 +9,7 @@ class GameScene {
 	public function new() {};
 
 	public function update(dt : Float) {
+		Layer.updateAll(dt);
 		Entity.updateAll(dt);
 		Layer.updateAllCameras(dt);
 	};

@@ -1,6 +1,8 @@
 package game.en.player;
 
+import gmfk.en.components.BoxCollider;
 import gmfk.en.components.SimpleSprite;
+import Cdb;
 
 class Player extends GameEntity {
 	public function new() {
@@ -11,5 +13,11 @@ class Player extends GameEntity {
 			SimpleSprite.build(this, GAME, SpriteUtil.getTile(Player))
 		);
 		addComponent(Controller.buildController(this));
+		addComponent(
+			BoxCollider.buildBoxCollider(
+				this,
+				BoundUtil.fromCdbSpriteCollisionBox(Player)
+			)
+		);
 	}
 }

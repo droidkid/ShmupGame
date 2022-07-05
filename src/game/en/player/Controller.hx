@@ -63,7 +63,7 @@ class Controller extends Component {
 			if (bulletFireCd.isDone) {
 				var bulletPos = entity.bounds.getCenter();
                 bulletPos.y -= 10;
-				B.buildBullet(bulletPos, Cdb.VelocitiesKind.PlayerBullet);
+				B.buildPlayerBullet(bulletPos);
 				bulletFireCd.reset();
 			}
 		}

@@ -16,4 +16,15 @@ class BoundUtil {
 		var sprite = Cdb.Sprites.get(cdbSprite).sprite;
 		return h2d.col.Bounds.fromValues(0, 0, sprite.size, sprite.size);
 	}
+
+    public static function fromCdbSpriteCollisionBox(cdbSprite: Cdb.SpritesKind) {
+		var box = Cdb.Sprites.get(cdbSprite).collisionbox;
+        return h2d.col.Bounds.fromValues(
+            box.getParameters()[0],
+            box.getParameters()[1],
+            box.getParameters()[2],
+            box.getParameters()[3]
+        );
+
+    }
 }
