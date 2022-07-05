@@ -60,6 +60,54 @@
 			],
 			"separators": [],
 			"props": {}
+		},
+		{
+			"name": "Velocities",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "xSpeed",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "ySpeed",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "xDamp",
+					"display": 1
+				},
+				{
+					"typeStr": "4",
+					"name": "yDamp",
+					"display": 1
+				}
+			],
+			"lines": [
+				{
+					"id": "Player",
+					"xSpeed": 100,
+					"ySpeed": 100,
+					"xDamp": 0.8,
+					"yDamp": 0.8
+				},
+				{
+					"id": "BackgroundScroll",
+					"xSpeed": 0,
+					"ySpeed": 10,
+					"xDamp": 0,
+					"yDamp": 0
+				}
+			],
+			"separators": [],
+			"props": {}
 		}
 	],
 	"customTypes": [],

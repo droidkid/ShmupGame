@@ -1,13 +1,15 @@
 package game.en.player;
 
+import ldtk.Layer_Entities;
 import gmfk.en.components.SimpleSprite;
 import Cdb;
 
 class Player extends GameEntity {
 	public function new() {
 		super();
-		fillBounds();
+		this.bounds = BoundUtil.fromLdtk(ldtkLevel.l_Entities.all_Player[0]);
 		addComponent(SimpleSprite.build(this, GAME, getTile()));
+        addComponent(Controller.buildController(this));
 	}
 
 	private function getTile() : h2d.Tile {
@@ -20,15 +22,5 @@ class Player extends GameEntity {
 		tile.setSize(planeTile.sprite.size, planeTile.sprite.size);
 		tile.scaleToSize(bounds.width, bounds.height);
 		return tile;
-	}
-
-	private function fillBounds() {
-		var playerBox = ldtkLevel.l_Entities.all_Player[0];
-		this.bounds = h2d.col.Bounds.fromValues(
-			playerBox.pixelX,
-			playerBox.pixelY,
-			playerBox.width,
-			playerBox.height
-		);
 	}
 }

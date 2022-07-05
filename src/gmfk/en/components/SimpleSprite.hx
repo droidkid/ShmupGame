@@ -21,7 +21,11 @@ class SimpleSprite extends Component {
 		return new SimpleSprite(Layer.get(layer), entity, tile);
 	}
 
-	override public function update(dt : Float) {}
+	override public function update(dt : Float) {
+		var bounds = entity.bounds;
+		var center = bounds.getCenter();
+		bmpContainer.setPosition(center.x, center.y);
+    }
 
 	private function buildBmpContainerAtCenter(tile : h2d.Tile) : h2d.Object {
 		var bounds = entity.bounds;

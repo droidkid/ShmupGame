@@ -1,5 +1,6 @@
 package gmfk.scene;
 
+import gmfk.layers.Layer;
 import gmfk.en.Entity;
 
 class GameScene {
@@ -9,6 +10,7 @@ class GameScene {
 
 	public function update(dt : Float) {
 		Entity.updateAll(dt);
+		Layer.updateAllCameras(dt);
 	};
 
 	public function loadScene() {};
