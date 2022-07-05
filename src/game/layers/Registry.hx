@@ -1,5 +1,6 @@
 package game.layers;
 
+import gmfk.layers.CollisionBoxes;
 import gmfk.layers.Layer;
 
 class Registry {

@@ -1,4 +1,4 @@
-package game.layers;
+package gmfk.layers;
 
 import gmfk.en.components.BoxCollider;
 import game.scenes.BaseScene;
@@ -7,27 +7,34 @@ import Cdb;
 
 class CollisionBoxes extends Layer {
 	var debugGraphics : h2d.Graphics;
+	var enabled : Bool;
 
 	override function initCamera() {
 		resizeCamera();
 		debugGraphics = new h2d.Graphics(container);
+		enabled = false;
 	}
 
 	override public function update(dt : Float) {
 		debugGraphics.clear();
-		debugGraphics.beginFill(0xFF0000);
-		debugGraphics.alpha = 0.3;
-		for (collider in BoxCollider.ALL) {
-			if (collider.enabled) {
-				debugGraphics.drawRect(
-					collider.bounds.x,
-					collider.bounds.y,
-					collider.bounds.width,
-					collider.bounds.height
-				);
-			}
+		if (hxd.Key.isPressed(Config.TOGGLE_COLLISION_BOXES)) {
+			enabled = !enabled;
 		}
-		debugGraphics.endFill();
+		if (enabled) {
+			debugGraphics.beginFill(0xFF0000);
+			debugGraphics.alpha = 0.3;
+			for (collider in BoxCollider.ALL) {
+				if (collider.enabled) {
+					debugGraphics.drawRect(
+						collider.bounds.x,
+						collider.bounds.y,
+						collider.bounds.width,
+						collider.bounds.height
+					);
+				}
+			}
+			debugGraphics.endFill();
+		}
 	}
 
 	override function updateCamera(dt : Float) {
@@ -49,5 +56,4 @@ class CollisionBoxes extends Layer {
 			cameraConfig.height * cameraScale
 		);
 	}
-
 }
