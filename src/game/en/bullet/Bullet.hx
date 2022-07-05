@@ -1,5 +1,7 @@
 package game.en.bullet;
 
+import game.en.util.BoundUtil;
+import game.en.util.SpriteUtil;
 import gmfk.en.components.BoxCollider;
 import gmfk.timer.Cd;
 import gmfk.en.components.SimpleSprite;

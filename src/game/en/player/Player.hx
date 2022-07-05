@@ -1,5 +1,7 @@
 package game.en.player;
 
+import game.en.util.BoundUtil;
+import game.en.util.SpriteUtil;
 import gmfk.en.components.BoxCollider;
 import gmfk.en.components.SimpleSprite;
 import Cdb;

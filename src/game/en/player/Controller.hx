@@ -1,5 +1,6 @@
 package game.en.player;
 
+import game.en.util.BoundUtil;
 import gmfk.timer.Cd;
 import game.en.bullet.Bullet as B;
 import gmfk.en.Component;
@@ -62,7 +63,7 @@ class Controller extends Component {
 		if (hxd.Key.isDown(fireButton)) {
 			if (bulletFireCd.isDone) {
 				var bulletPos = entity.bounds.getCenter();
-                bulletPos.y -= 10;
+				bulletPos.y -= 10;
 				B.buildPlayerBullet(bulletPos);
 				bulletFireCd.reset();
 			}

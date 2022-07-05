@@ -1,4 +1,4 @@
-package game.en;
+package game.en.util;
 
 import Cdb;
 
