@@ -1,5 +1,6 @@
 package game.scenes;
 
+import game.en.player.Player;
 import game.en.DebugHud;
 import gmfk.layers.Layer;
 import gmfk.scene.GameScene;
@@ -18,6 +19,8 @@ class BaseScene extends GameScene {
 		Layer.get(BACKGROUND).camera.visible = true;
 		Layer.get(HUD).camera.visible = true;
 		Layer.get(GAME).camera.visible = true;
+
+		new Player();
 	}
 
 	override function update(dt : Float) {

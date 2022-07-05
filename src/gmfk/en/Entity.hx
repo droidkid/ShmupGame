@@ -1,8 +1,6 @@
 package gmfk.en;
 
 import gmfk.gamestate.GameState;
-import game.gamestates.InPlay;
-
 import haxe.iterators.ArrayIterator;
 
 class Entity {
@@ -13,12 +11,14 @@ class Entity {
 
 	public var layer(default, null) : h2d.Object;
 	public var game(get, never) : Game;
+	public var bounds : h2d.col.Bounds;
 
 	public function new() {
 		ALL.push(this);
 
 		components = new Array();
 		isMarkedForDestruction = false;
+		this.bounds = new h2d.col.Bounds();
 	}
 
 	public function update(dt : Float) {

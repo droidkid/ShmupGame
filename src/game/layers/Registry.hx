@@ -5,7 +5,7 @@ import gmfk.layers.Layer;
 class Registry {
     public static function initLayers() {
         new Background(BACKGROUND);
-        new Layer(GAME);
+        new GameLayer(GAME);
         new Layer(HUD);
     }
 }
