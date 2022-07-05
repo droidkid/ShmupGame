@@ -1,0 +1,36 @@
+{
+    "wrapping": {
+        "callParameter": {
+            "defaultWrap": "fillLine",
+            "rules": [
+                {
+                    "conditions": [
+                        {
+                            "cond": "lineLength >= n",
+                            "value": 80
+                        }
+                    ],
+                    "type": "onePerLine"
+                }
+            ]
+        },
+        "functionSignature": {
+            "defaultWrap": "fillLine",
+            "rules": [
+                {
+                    "conditions": [
+                        {
+                            "cond": "lineLength >= n",
+                            "value": 80
+                        }
+                    ],
+                    "type": "onePerLine"
+                }
+            ]
+        },
+        "maxLineLength": 80 
+    },
+    "whitespace": {
+        "typeHintColonPolicy": "around"
+    }
+}

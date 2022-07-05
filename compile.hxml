@@ -1,0 +1,10 @@
+-cp src
+-lib heaps
+-lib ldtk-haxe-api
+-lib deepnightLibs
+-lib castle
+-D ldtkCastle=Cdb
+
+-js game.js
+-main App
+-debug
