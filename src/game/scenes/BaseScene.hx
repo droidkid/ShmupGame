@@ -1,5 +1,6 @@
 package game.scenes;
 
+import game.en.enemy.Enemy;
 import game.en.player.Player;
 import game.en.DebugHud;
 import gmfk.layers.Layer;
@@ -21,6 +22,7 @@ class BaseScene extends GameScene {
 		Layer.get(GAME).camera.visible = true;
 
 		new Player();
+		Enemy.initAll(getLdtkLevel());
 	}
 
 	override function update(dt : Float) {

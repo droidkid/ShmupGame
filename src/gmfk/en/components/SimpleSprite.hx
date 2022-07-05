@@ -6,10 +6,11 @@ import gmfk.layers.Layer;
 class SimpleSprite extends Component {
 	var bmpContainer : h2d.Object;
 
-	public function new(layer : Layer, entity : Entity, tile : h2d.Tile) {
+	public function new(layer : Layer, entity : Entity, tile : h2d.Tile, angle: Float) {
 		super();
 		this.entity = entity;
 		this.bmpContainer = buildBmpContainerAtCenter(tile);
+		this.bmpContainer.rotation = angle;
 		layer.container.addChild(bmpContainer);
 	}
 
@@ -18,7 +19,16 @@ class SimpleSprite extends Component {
 		layer : LayerNames,
 		tile : h2d.Tile
 	) {
-		return new SimpleSprite(Layer.get(layer), entity, tile);
+		return new SimpleSprite(Layer.get(layer), entity, tile, 0);
+	}
+
+	public static function buildRotated(
+		entity : Entity,
+		layer : LayerNames,
+		tile : h2d.Tile,
+		angle: Float
+	) {
+		return new SimpleSprite(Layer.get(layer), entity, tile, angle);
 	}
 
 	override public function update(dt : Float) {

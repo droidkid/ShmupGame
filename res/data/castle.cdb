@@ -186,6 +186,112 @@
 			],
 			"separators": [],
 			"props": {}
+		},
+		{
+			"name": "EnemyMovePattern",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "Fixed"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "EnemyGroupShape",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "HorizontalLine"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "EnemyType",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "6:Sprites",
+					"name": "sprite",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "health",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "EnemyFodder",
+					"sprite": "EnemyFodder",
+					"health": 3
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "EnemyDepth",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "TopLayer"
+				},
+				{
+					"id": "Staging"
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "CdbEnumTest",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "CdbA"
+				},
+				{
+					"id": "CdbB"
+				},
+				{
+					"id": "CdbC"
+				}
+			],
+			"separators": [],
+			"props": {}
 		}
 	],
 	"customTypes": [
