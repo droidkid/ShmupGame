@@ -23,11 +23,18 @@ class Layer {
 	}
 
 	public function initCamera() {}
+	public function resizeCamera() {}
 	public function updateCamera(dt: Float) {}
 
     public static function initAllCameras() {
         for (layer in ALL) {
             layer.initCamera();
+        }
+    }
+
+    public static function resizeAllCameras() {
+        for (layer in ALL) {
+            layer.resizeCamera();
         }
     }
 

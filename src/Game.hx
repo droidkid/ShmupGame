@@ -17,11 +17,15 @@ class Game {
 		ME = this;
 		this.s2d = s2d;
 		initResources();
+		s2d.camera.visible = false;
 		Layer.initAll();
 		GameState.initGameStates();
-		
+
 		this.gameState = GameState.getInitialState();
 		this.scene = Registry.getInitialScene();
+
+		Layer.initAllCameras();
+
 		this.eTime = 0;
 	}
 
@@ -29,6 +33,10 @@ class Game {
 		eTime += dt;
 		this.gameState.update(dt);
 		this.scene.update(dt);
+	}
+
+	public function onResize() {
+
 	}
 
 

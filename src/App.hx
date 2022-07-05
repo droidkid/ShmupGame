@@ -13,6 +13,11 @@ class App extends hxd.App {
         game.update(dt);
     }
 
+	override function onResize() {
+		super.onResize();
+		game.onResize();
+	}
+
 	static function main() {
 		new App();
 	}
