@@ -1,6 +1,6 @@
 package game.en;
 
-import gmfk.layers.Layers;
+import gmfk.layers.Layer;
 import gmfk.en.Entity;
 
 class DebugHud extends Entity {
@@ -10,7 +10,7 @@ class DebugHud extends Entity {
 
 	public function new() {
 		super();
-		this.layer = Layers.getLayer(HUD);
+		this.layer = Layer.get(HUD).container;
         this.fpsBox = createTextBox(0, 0);
 		this.timeBox = createTextBox(0, 16);
 		this.gameStateBox = createTextBox(0, 32);

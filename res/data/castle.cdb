@@ -1,5 +1,81 @@
 {
-	"sheets": [],
+	"sheets": [
+		{
+			"name": "ShipSprites",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "14",
+					"name": "sprite",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "Player",
+					"sprite": {
+						"file": "../spritesheets/ships.png",
+						"size": 32,
+						"x": 0,
+						"y": 1
+					}
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Player",
+			"columns": [],
+			"lines": [],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Bounds",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "x",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "y",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "wid",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "hei",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "CameraBounds",
+					"x": 0,
+					"y": 0,
+					"wid": 256,
+					"hei": 256
+				}
+			],
+			"separators": [],
+			"props": {}
+		}
+	],
 	"customTypes": [],
 	"compress": false
 }

@@ -1,5 +1,6 @@
 package gmfk.en;
 
+import gmfk.gamestate.GameState;
 import game.gamestates.InPlay;
 
 import haxe.iterators.ArrayIterator;
@@ -21,7 +22,7 @@ class Entity {
 	}
 
 	public function update(dt : Float) {
-		if (game.gameState != InPlay.ME) {
+		if (game.gameState != GameState.get(IN_PLAY)) {
 			return;
 		}
 		for (component in components) {
