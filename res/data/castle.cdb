@@ -1,7 +1,7 @@
 {
 	"sheets": [
 		{
-			"name": "ShipSprites",
+			"name": "Sprites",
 			"columns": [
 				{
 					"typeStr": "0",
@@ -21,6 +21,15 @@
 						"size": 32,
 						"x": 0,
 						"y": 1
+					}
+				},
+				{
+					"id": "Bullet",
+					"sprite": {
+						"file": "../spritesheets/tiles.png",
+						"size": 16,
+						"x": 0,
+						"y": 0
 					}
 				}
 			],
@@ -104,6 +113,40 @@
 					"ySpeed": 10,
 					"xDamp": 0,
 					"yDamp": 0
+				},
+				{
+					"id": "PlayerBullet",
+					"xSpeed": 0,
+					"ySpeed": -300,
+					"xDamp": 0,
+					"yDamp": 0
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Durations",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "seconds",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "BulletTtl",
+					"seconds": 0.5
+				},
+				{
+					"id": "PlayerFireRate",
+					"seconds": 0.1
 				}
 			],
 			"separators": [],

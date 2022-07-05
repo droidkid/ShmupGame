@@ -25,7 +25,7 @@ class SimpleSprite extends Component {
 		var bounds = entity.bounds;
 		var center = bounds.getCenter();
 		bmpContainer.setPosition(center.x, center.y);
-    }
+	}
 
 	private function buildBmpContainerAtCenter(tile : h2d.Tile) : h2d.Object {
 		var bounds = entity.bounds;
@@ -38,5 +38,13 @@ class SimpleSprite extends Component {
 		bmp.setPosition(-bounds.width * 0.5, -bounds.height * 0.5);
 
 		return bmpContainer;
+	}
+
+	override function set_enabled(value : Bool) : Bool {
+		super.set_enabled(value);
+		if (bmpContainer != null) {
+			bmpContainer.visible = value;
+		}
+		return value;
 	}
 }

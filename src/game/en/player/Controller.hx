@@ -1,5 +1,7 @@
 package game.en.player;
 
+import gmfk.timer.Cd;
+import game.en.bullet.Bullet as B;
 import gmfk.en.Component;
 import Cdb;
 
@@ -14,28 +16,31 @@ class Controller extends Component {
 	private var dy : Float;
 	private var xVel : Float;
 	private var yVel : Float;
-    private var xDamp : Float;
-    private var yDamp : Float;
+	private var xDamp : Float;
+	private var yDamp : Float;
 	private var playerLimits : h2d.col.Bounds;
+	private var bulletFireCd : Cd;
 
 	public function new(player : GameEntity) {
 		super();
 
-        this.entity = player;
-        var cdb = Cdb.Velocities.get(Player);
+		this.entity = player;
+		var cdb = Cdb.Velocities.get(Player);
 		this.xVel = cdb.xSpeed;
 		this.yVel = cdb.ySpeed;
-        this.xDamp = cdb.xDamp;
-        this.yDamp = cdb.yDamp;
+		this.xDamp = cdb.xDamp;
+		this.yDamp = cdb.yDamp;
 		this.playerLimits = BoundUtil.fromLdtk(
 			player.ldtkLevel.l_Entities.all_PlayerBounds[0]
 		);
 		this.dx = 0;
 		this.dy = 0;
+		var duration = Cdb.Durations.get(PlayerFireRate).seconds;
+		this.bulletFireCd = new Cd(duration);
 	}
 
 	override public function update(dt : Float) {
-		// playerLimits.x += dt * yVel;
+		bulletFireCd.update(dt);
 		if (hxd.Key.isDown(moveRightButton)) {
 			dx = xVel * dt;
 		}
@@ -53,6 +58,15 @@ class Controller extends Component {
 
 		dy = dy * yDamp;
 		dx = dx * xDamp;
+
+		if (hxd.Key.isDown(fireButton)) {
+			if (bulletFireCd.isDone) {
+				var bulletPos = entity.bounds.getCenter();
+                bulletPos.y -= 10;
+				B.buildBullet(bulletPos, Cdb.VelocitiesKind.PlayerBullet);
+				bulletFireCd.reset();
+			}
+		}
 	}
 
 	private function move(dx : Float, dy : Float) {
@@ -81,7 +95,7 @@ class Controller extends Component {
 		entity.bounds.offset(dx, dy);
 	}
 
-    public static function buildController(player: game.en.player.Player) {
-        return new Controller(player);
-    }
+	public static function buildController(player : game.en.player.Player) {
+		return new Controller(player);
+	}
 }
