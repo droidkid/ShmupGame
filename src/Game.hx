@@ -2,6 +2,7 @@ import game.scenes.Registry;
 import gmfk.layers.Layer;
 import gmfk.gamestate.GameState;
 import gmfk.scene.GameScene;
+import Cdb;
 
 class Game {
 	public static var ME : Game;
@@ -56,8 +57,8 @@ class Game {
 	}
 
 	private function initResources() {
-		ldtk = new Ldtk();
 		Cdb.load(hxd.Res.data.castle.entry.getText());
+		ldtk = new Ldtk();
 	}
 
 	private function set_scene(scene: GameScene) : GameScene{

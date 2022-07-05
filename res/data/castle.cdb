@@ -61,10 +61,10 @@
 					},
 					"collisionbox": [
 						0,
-						0,
-						0,
-						32,
-						32
+						10,
+						8,
+						11,
+						15
 					]
 				}
 			],
@@ -182,6 +182,10 @@
 				{
 					"id": "PlayerFireRate",
 					"seconds": 0.1
+				},
+				{
+					"id": "EaseInDuration",
+					"seconds": 2
 				}
 			],
 			"separators": [],
@@ -216,6 +220,9 @@
 			"lines": [
 				{
 					"id": "HorizontalLine"
+				},
+				{
+					"id": "Single"
 				}
 			],
 			"separators": [],
@@ -261,33 +268,13 @@
 			],
 			"lines": [
 				{
+					"id": "Staging"
+				},
+				{
 					"id": "TopLayer"
 				},
 				{
-					"id": "Staging"
-				}
-			],
-			"separators": [],
-			"props": {}
-		},
-		{
-			"name": "CdbEnumTest",
-			"columns": [
-				{
-					"typeStr": "0",
-					"name": "id",
-					"display": null
-				}
-			],
-			"lines": [
-				{
-					"id": "CdbA"
-				},
-				{
-					"id": "CdbB"
-				},
-				{
-					"id": "CdbC"
+					"id": "MediumLayer"
 				}
 			],
 			"separators": [],

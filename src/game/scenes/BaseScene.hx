@@ -22,16 +22,20 @@ class BaseScene extends GameScene {
 		Layer.get(GAME).camera.visible = true;
 
 		new Player();
-		Enemy.initAll(getLdtkLevel());
+		Enemy.initAll(getLdtkLevel(), getLevelDuration());
 	}
 
 	override function update(dt : Float) {
 		super.update(dt);
 	}
 
-    public function getLdtkLevel() : Ldtk.Ldtk_Level {
-        return Game.ME.ldtk.all_levels.Level_0;
-    }
+	public function getLdtkLevel() : Ldtk.Ldtk_Level {
+		return Game.ME.ldtk.all_levels.Level_0;
+	}
+
+	public function getLevelDuration() : Float {
+		return getLdtkLevel().l_Entities.all_Config[0].f_LevelDuration;
+	}
 
 	public function getCameraConfig() : Ldtk.Entity_Camera {
 		return getLdtkLevel().l_Entities.all_Camera[0];
