@@ -58,6 +58,7 @@ class Enemy extends GameEntity {
 
 	override public function update(dt : Float) {
 		activationCd.update(dt);
+		flashCd.update(dt);
 		if (!isActivated && activationCd.isDone) {
 			this.bounds.y = stagingY;
 			isActivated = true;
