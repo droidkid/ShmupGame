@@ -4,12 +4,18 @@ import game.layers.LayerNames.LayerNames;
 import gmfk.layers.Layer;
 
 class SimpleSprite extends Component {
-	var bmpContainer : h2d.Object;
+	public var bmpContainer : h2d.Object;
+	public var bmp : h2d.Bitmap;
 
-	public function new(layer : Layer, entity : Entity, tile : h2d.Tile, angle: Float) {
+	public function new(
+		layer : Layer,
+		entity : Entity,
+		tile : h2d.Tile,
+		angle : Float
+	) {
 		super();
 		this.entity = entity;
-		this.bmpContainer = buildBmpContainerAtCenter(tile);
+		initBmpContainerAtCenter(tile);
 		this.bmpContainer.rotation = angle;
 		layer.container.addChild(bmpContainer);
 	}
@@ -26,7 +32,7 @@ class SimpleSprite extends Component {
 		entity : Entity,
 		layer : LayerNames,
 		tile : h2d.Tile,
-		angle: Float
+		angle : Float
 	) {
 		return new SimpleSprite(Layer.get(layer), entity, tile, angle);
 	}
@@ -37,17 +43,15 @@ class SimpleSprite extends Component {
 		bmpContainer.setPosition(center.x, center.y);
 	}
 
-	private function buildBmpContainerAtCenter(tile : h2d.Tile) : h2d.Object {
+	private function initBmpContainerAtCenter(tile : h2d.Tile) {
 		var bounds = entity.bounds;
 		var center = bounds.getCenter();
 
-		var bmpContainer = new h2d.Object();
+		bmpContainer = new h2d.Object();
 		bmpContainer.setPosition(center.x, center.y);
 
-		var bmp = new h2d.Bitmap(tile, bmpContainer);
+		bmp = new h2d.Bitmap(tile, bmpContainer);
 		bmp.setPosition(-bounds.width * 0.5, -bounds.height * 0.5);
-
-		return bmpContainer;
 	}
 
 	override function set_enabled(value : Bool) : Bool {

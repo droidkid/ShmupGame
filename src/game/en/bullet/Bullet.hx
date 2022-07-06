@@ -1,13 +1,18 @@
 package game.en.bullet;
 
+import gmfk.layers.Layer;
+import h2d.Anim;
+import game.en.enemy.Enemy;
+import gmfk.en.Entity;
+import Cdb;
 import game.en.util.BoundUtil;
 import game.en.util.SpriteUtil;
 import gmfk.en.components.BoxCollider;
-import gmfk.timer.Cd;
 import gmfk.en.components.SimpleSprite;
-import Cdb;
 
 class Bullet extends GameEntity {
+	public var damage : Int;
+
 	public function new(
 		position : h2d.col.Point,
 		velocity : Cdb.VelocitiesKind
@@ -28,9 +33,25 @@ class Bullet extends GameEntity {
 				BoundUtil.fromCdbSpriteCollisionBox(Bullet)
 			)
 		);
+		this.damage = 1;
 	}
 
 	public static function buildPlayerBullet(position : h2d.col.Point) {
 		return new Bullet(position, Cdb.VelocitiesKind.PlayerBullet);
+	}
+
+	override function handleCollision(other : Entity) {
+		if (Std.isOfType(other, Enemy)) {
+			var deathAnim = new h2d.Anim();
+			deathAnim.setPosition(
+				bounds.getCenter().x - bounds.width * 0.5,
+				bounds.getCenter().y - bounds.height * 0.5
+			);
+			deathAnim.play(SpriteUtil.getAnimationTiles(BulletFlash));
+			Layer.get(GAME).container.addChild(deathAnim);
+			deathAnim.onAnimEnd = () -> {
+				deathAnim.remove();
+			}
+		}
 	}
 }

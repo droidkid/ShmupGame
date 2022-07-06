@@ -185,7 +185,11 @@
 				},
 				{
 					"id": "EaseInDuration",
-					"seconds": 2
+					"seconds": 1
+				},
+				{
+					"id": "EnemyHitFlash",
+					"seconds": 0.3
 				}
 			],
 			"separators": [],
@@ -279,6 +283,105 @@
 			],
 			"separators": [],
 			"props": {}
+		},
+		{
+			"name": "Animations",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "8",
+					"name": "sprites",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "EnemyDeath",
+					"sprites": [
+						{
+							"items": {
+								"file": "../spritesheets/tiles.png",
+								"size": 16,
+								"x": 5,
+								"y": 0
+							}
+						},
+						{
+							"items": {
+								"file": "../spritesheets/tiles.png",
+								"size": 16,
+								"x": 7,
+								"y": 0
+							}
+						},
+						{
+							"items": {
+								"file": "../spritesheets/tiles.png",
+								"size": 16,
+								"x": 7,
+								"y": 0
+							}
+						},
+						{
+							"items": {
+								"file": "../spritesheets/tiles.png",
+								"size": 16,
+								"x": 8,
+								"y": 0
+							}
+						},
+						{
+							"items": {
+								"file": "../spritesheets/tiles.png",
+								"size": 16,
+								"x": 8,
+								"y": 0
+							}
+						}
+					]
+				},
+				{
+					"id": "BulletFlash",
+					"sprites": [
+						{
+							"items": {
+								"file": "../spritesheets/tiles.png",
+								"size": 16,
+								"x": 4,
+								"y": 0
+							}
+						},
+						{
+							"items": {
+								"file": "../spritesheets/tiles.png",
+								"size": 16,
+								"x": 4,
+								"y": 0
+							}
+						}
+					]
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Animations@sprites",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "14",
+					"name": "items",
+					"display": null
+				}
+			]
 		}
 	],
 	"customTypes": [

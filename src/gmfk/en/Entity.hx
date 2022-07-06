@@ -55,6 +55,8 @@ class Entity {
 		return null;
 	}
 
+	public function handleCollision(other: Entity) {}
+
 	public static function updateAll(dt : Float) {
 		for (entity in ALL) {
 			if (entity.isMarkedForDestruction) {

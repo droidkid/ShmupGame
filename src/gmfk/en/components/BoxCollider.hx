@@ -29,4 +29,18 @@ class BoxCollider extends Component {
 	) {
 		return new BoxCollider(entity, bounds);
 	}
+
+	public static function checkCollisions() {
+		for (i in 0...ALL.length) {
+			for (j in i + 1...ALL.length) {
+				if (!ALL[i].enabled || !ALL[j].enabled) {
+					continue;
+				}
+				if (ALL[i].bounds.intersects(ALL[j].bounds)) {
+					ALL[i].entity.handleCollision(ALL[j].entity);
+					ALL[j].entity.handleCollision(ALL[i].entity);
+				}
+			}
+		}
+	}
 }

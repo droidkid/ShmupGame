@@ -1,5 +1,6 @@
 package gmfk.scene;
 
+import gmfk.en.components.BoxCollider;
 import gmfk.layers.Layer;
 import gmfk.en.Entity;
 
@@ -11,6 +12,7 @@ class GameScene {
 	public function update(dt : Float) {
 		Layer.updateAll(dt);
 		Entity.updateAll(dt);
+		BoxCollider.checkCollisions();
 		Layer.updateAllCameras(dt);
 	};
 

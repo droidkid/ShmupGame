@@ -1,11 +1,14 @@
 package game.en.enemy;
 
+import gmfk.en.Entity;
 import gmfk.en.components.BoxCollider;
 import game.en.util.SpriteUtil;
 import gmfk.en.components.SimpleSprite;
 import gmfk.timer.Easings;
 import gmfk.timer.Cd;
+import gmfk.layers.Layer;
 import game.en.util.BoundUtil;
+import game.en.bullet.Bullet as B;
 import Cdb;
 
 class Enemy extends GameEntity {
@@ -16,6 +19,9 @@ class Enemy extends GameEntity {
 	var activationCd : Cd;
 	var isActivated : Bool;
 	var entryEasing : Easings;
+	var health : Int;
+	var deathAnim : h2d.Anim;
+	var flashCd: Cd;
 
 	public function new(
 		bounds : h2d.col.Bounds,
@@ -32,6 +38,7 @@ class Enemy extends GameEntity {
 			Cdb.Durations.get(EaseInDuration).seconds,
 			EASE_OUT_BACK
 		);
+		this.health = 5;
 		addComponent(
 			SimpleSprite.buildRotated(
 				this,
@@ -43,6 +50,10 @@ class Enemy extends GameEntity {
 
 		var collisionBounds = BoundUtil.fromCdbSpriteCollisionBox(EnemyFodder);
 		addComponent(BoxCollider.buildBoxCollider(this, collisionBounds));
+
+		deathAnim = new h2d.Anim(SpriteUtil.getAnimationTiles(EnemyDeath));
+		this.flashCd = new Cd(Cdb.Durations.get(EnemyHitFlash).seconds);
+		this.flashCd.pause();
 	}
 
 	override public function update(dt : Float) {
@@ -88,6 +99,36 @@ class Enemy extends GameEntity {
 			}
 
 			new Enemy(BoundUtil.fromLdtk(enemy), activationTime, target);
+		}
+	}
+
+	override function handleCollision(other : Entity) {
+		if (Std.isOfType(other, B)) {
+			var b = cast(other, B);
+			health -= b.damage;
+			b.destroy();
+			if (health > 0) {
+				var sprite : SimpleSprite = getFirstComponent(SimpleSprite);
+				sprite.bmp.adjustColor({hue: Math.PI * 0.2, lightness: 0.3});
+				flashCd.reset();
+				flashCd.onDone = () -> {
+					sprite.bmp.adjustColor();
+				}
+			}
+
+			if (health == 0) {
+				Layer.get(GAME).container.addChild(deathAnim);
+				deathAnim.setPosition(
+					bounds.getCenter().x - bounds.width * 0.5,
+					bounds.getCenter().y - bounds.height * 0.5
+				);
+				deathAnim.currentFrame = 0;
+				this.destroy();
+				deathAnim.loop = false;
+				deathAnim.onAnimEnd = () -> {
+					Layer.get(GAME).container.removeChild(deathAnim);
+				};
+			}
 		}
 	}
 }
