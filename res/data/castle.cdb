@@ -61,9 +61,9 @@
 					},
 					"collisionbox": [
 						0,
-						10,
+						4,
 						8,
-						11,
+						24,
 						15
 					]
 				}
@@ -137,8 +137,8 @@
 			"lines": [
 				{
 					"id": "Player",
-					"xSpeed": 100,
-					"ySpeed": 100,
+					"xSpeed": 200,
+					"ySpeed": 200,
 					"xDamp": 0.8,
 					"yDamp": 0.8
 				},
@@ -177,11 +177,11 @@
 			"lines": [
 				{
 					"id": "BulletTtl",
-					"seconds": 0.5
+					"seconds": 0.8
 				},
 				{
 					"id": "PlayerFireRate",
-					"seconds": 0.1
+					"seconds": 0.05
 				},
 				{
 					"id": "EaseInDuration",
@@ -275,10 +275,16 @@
 					"id": "Staging"
 				},
 				{
-					"id": "TopLayer"
+					"id": "Layer_1"
 				},
 				{
-					"id": "MediumLayer"
+					"id": "Layer_2"
+				},
+				{
+					"id": "Layer_3"
+				},
+				{
+					"id": "Layer_4"
 				}
 			],
 			"separators": [],

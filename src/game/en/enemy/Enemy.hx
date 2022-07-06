@@ -9,19 +9,18 @@ import gmfk.timer.Cd;
 import gmfk.layers.Layer;
 import game.en.util.BoundUtil;
 import game.en.bullet.Bullet as B;
+import haxe.ds.StringMap;
 import Cdb;
 
 class Enemy extends GameEntity {
-	private static var stagingY : Float;
-	private static var topY : Float;
-	private static var mediumY : Float;
+	private static var depths : StringMap<Float>;
 
 	var activationCd : Cd;
 	var isActivated : Bool;
 	var entryEasing : Easings;
 	var health : Int;
 	var deathAnim : h2d.Anim;
-	var flashCd: Cd;
+	var flashCd : Cd;
 
 	public function new(
 		bounds : h2d.col.Bounds,
@@ -33,12 +32,12 @@ class Enemy extends GameEntity {
 		this.activationCd = new Cd(activationOffset);
 		this.isActivated = false;
 		this.entryEasing = new Easings(
-			stagingY,
+			depths.get(Cdb.EnemyDepth.get(Staging).id.toString()),
 			targetY,
 			Cdb.Durations.get(EaseInDuration).seconds,
 			EASE_OUT_BACK
 		);
-		this.health = 5;
+		this.health = 3;
 		addComponent(
 			SimpleSprite.buildRotated(
 				this,
@@ -60,7 +59,6 @@ class Enemy extends GameEntity {
 		activationCd.update(dt);
 		flashCd.update(dt);
 		if (!isActivated && activationCd.isDone) {
-			this.bounds.y = stagingY;
 			isActivated = true;
 		}
 		if (isActivated && !entryEasing.isDone) {
@@ -75,29 +73,19 @@ class Enemy extends GameEntity {
 		ldtkLevel : Ldtk.Ldtk_Level,
 		lvlDuration : Float
 	) {
+		depths = new StringMap();
 		for (enemyDepth in ldtkLevel.l_Entities.all_EnemyAreas) {
-			switch (enemyDepth.f_EnemyDepth) {
-				case Staging:
-					stagingY = enemyDepth.pixelY;
-				case TopLayer:
-					topY = enemyDepth.pixelY;
-				case MediumLayer:
-					mediumY = enemyDepth.pixelY;
-			}
+			depths.set(enemyDepth.f_EnemyDepth.toString(), enemyDepth.pixelY);
 		}
 
+		var startLine = ldtkLevel.l_Entities.all_Camera[0].height;
+		var lvlLen = (ldtkLevel.pxHei - startLine);
 		for (enemy in ldtkLevel.l_Entities.all_EnemyGroup) {
-			var activationTime = lvlDuration * (ldtkLevel.pxHei
-				- enemy.pixelY) / ldtkLevel.pxHei;
-			var target : Float;
-			switch (enemy.f_targetDepth) {
-				case Staging:
-					target = stagingY;
-				case MediumLayer:
-					target = mediumY;
-				case TopLayer:
-					target = topY;
-			}
+			var activationTime = (ldtkLevel.pxHei
+				- enemy.pixelY
+				- startLine) / lvlLen;
+			activationTime *= lvlDuration;
+			var target = depths.get(enemy.f_targetDepth.toString());
 
 			new Enemy(BoundUtil.fromLdtk(enemy), activationTime, target);
 		}
