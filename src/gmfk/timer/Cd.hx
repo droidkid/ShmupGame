@@ -44,6 +44,11 @@ class Cd {
 		this.paused = false;
 	}
 
+	public function resetDuration(duration: Float) {
+		this.duration = duration;
+		reset();
+	}
+
 	public function pause() {
 		paused = true;
 	}

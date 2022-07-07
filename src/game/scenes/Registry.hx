@@ -4,6 +4,6 @@ import gmfk.scene.GameScene;
 
 class Registry {
     public static function getInitialScene() : GameScene {
-        return new Level0();
+        return new Level1();
     }
 }

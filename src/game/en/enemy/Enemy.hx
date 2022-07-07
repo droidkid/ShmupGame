@@ -1,5 +1,6 @@
 package game.en.enemy;
 
+import game.layers.GameLayer;
 import gmfk.gamestate.GameState;
 import gmfk.en.Entity;
 import gmfk.en.components.BoxCollider;
@@ -103,6 +104,7 @@ class Enemy extends GameEntity {
 			var b = cast(other, B);
 			health -= b.damage;
 			b.destroy();
+			screenshake(1.0, 0.1, 0.8);
 			if (health > 0) {
 				var sprite : SimpleSprite = getFirstComponent(SimpleSprite);
 				sprite.bmp.adjustColor({hue: Math.PI * 0.2, lightness: 0.3});

@@ -1,22 +1,27 @@
 package game.scenes;
 
+import gmfk.gamestate.GameState;
 import game.en.enemy.Enemy;
 import game.en.player.Player;
 import game.en.DebugHud;
 import gmfk.layers.Layer;
 import gmfk.scene.GameScene;
+import Cdb;
 
 class BaseScene extends GameScene {
 	var g : h2d.Graphics;
 	var hud : DebugHud;
+	var bg: h2d.Object;
+	var bgScroll : Float;
 
 	override function loadScene() {
 		super.loadScene();
 		hud = new DebugHud();
 		g = new h2d.Graphics(Layer.get(GAME).container);
 
-		var ldtkLevel = getLdtkLevel().l_Background.render();
-		Layer.get(BACKGROUND).container.addChild(ldtkLevel);
+		bg = getLdtkLevel().l_Background.render();
+		Layer.get(BACKGROUND).container.addChild(bg);
+		this.bgScroll = Cdb.Velocities.get(BackgroundScroll).ySpeed;
 
 		new Player();
 		Enemy.initAll(getLdtkLevel(), getLevelDuration());
@@ -24,6 +29,9 @@ class BaseScene extends GameScene {
 
 	override function update(dt : Float) {
 		super.update(dt);
+		if (Game.ME.gameState == GameState.get(IN_PLAY)) {
+			bg.y += bgScroll * dt;
+		}
 	}
 
 	public function getLdtkLevel() : Ldtk.Ldtk_Level {
