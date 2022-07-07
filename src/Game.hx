@@ -1,3 +1,4 @@
+import gmfk.systems.System;
 import game.scenes.Registry;
 import gmfk.layers.Layer;
 import gmfk.gamestate.GameState;
@@ -10,8 +11,8 @@ class Game {
 	public var s2d(get, null) : h2d.Scene;
 	public var ldtk(default, null) : Ldtk;
 	public var eTime(default, null) : Float;
-
 	public var scene(default, set) : GameScene;
+
 	@:isVar public var gameState(get, set) : GameState;
 
 	public function new(s2d : h2d.Scene) {
@@ -19,8 +20,8 @@ class Game {
 		this.s2d = s2d;
 		initResources();
 		s2d.camera.visible = false;
-		Layer.initAll();
 		GameState.initGameStates();
+		System.initAll();
 
 		this.gameState = GameState.getInitialState();
 		this.scene = Registry.getInitialScene();

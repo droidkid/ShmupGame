@@ -14,6 +14,7 @@ import Cdb;
 
 class Enemy extends GameEntity {
 	private static var depths : StringMap<Float>;
+	private static var ALL_ENEMIES : Array<Enemy> = [];
 
 	var activationCd : Cd;
 	var isActivated : Bool;
@@ -73,6 +74,7 @@ class Enemy extends GameEntity {
 		ldtkLevel : Ldtk.Ldtk_Level,
 		lvlDuration : Float
 	) {
+		ALL_ENEMIES.resize(0);
 		depths = new StringMap();
 		for (enemyDepth in ldtkLevel.l_Entities.all_EnemyAreas) {
 			depths.set(enemyDepth.f_EnemyDepth.toString(), enemyDepth.pixelY);
@@ -87,7 +89,9 @@ class Enemy extends GameEntity {
 			activationTime *= lvlDuration;
 			var target = depths.get(enemy.f_targetDepth.toString());
 
-			new Enemy(BoundUtil.fromLdtk(enemy), activationTime, target);
+			ALL_ENEMIES.push(
+				new Enemy(BoundUtil.fromLdtk(enemy), activationTime, target)
+			);
 		}
 	}
 
@@ -119,5 +123,14 @@ class Enemy extends GameEntity {
 				};
 			}
 		}
+	}
+
+	public static function allCleared() {
+		for (enemy in ALL_ENEMIES) {
+			if (!enemy.isMarkedForDestruction) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

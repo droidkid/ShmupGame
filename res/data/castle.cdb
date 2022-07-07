@@ -177,7 +177,7 @@
 			"lines": [
 				{
 					"id": "BulletTtl",
-					"seconds": 0.8
+					"seconds": 0.5
 				},
 				{
 					"id": "PlayerFireRate",

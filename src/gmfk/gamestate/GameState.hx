@@ -20,7 +20,7 @@ class GameState {
 	}
 
 	public static function initGameStates() {
-		Registry.initAll();
+		Registry.initGameStates();
 	}
 
 	public static function getInitialState() : GameState {
