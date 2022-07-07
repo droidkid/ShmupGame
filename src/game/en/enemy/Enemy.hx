@@ -115,8 +115,8 @@ class Enemy extends GameEntity {
 			if (health == 0) {
 				Layer.get(GAME).container.addChild(deathAnim);
 				deathAnim.setPosition(
-					bounds.getCenter().x - bounds.width * 0.5,
-					bounds.getCenter().y - bounds.height * 0.5
+					bounds.getCenter().x - 8,
+					bounds.getCenter().y - 8 
 				);
 				deathAnim.currentFrame = 0;
 				this.destroy();
