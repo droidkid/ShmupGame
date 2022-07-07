@@ -1,43 +1,35 @@
 package gmfk.timer;
 
+import game.gamestates.GameStateNames;
+import gmfk.gamestate.GameState;
+
 enum EasingType {
 	EASE_OUT_CUBIC;
 	EASE_OUT_BOUNCE;
 	EASE_OUT_BACK;
 }
 
-class Easings {
-	public var isDone(get, null) : Bool;
-
-	var d : Float;
+class Easings extends Cd {
 	var s : Float;
 	var e : Float;
-	var t : Float;
 	var type : EasingType;
 
 	public function new(
 		s : Float,
 		e : Float,
 		duration : Float,
-		type : EasingType
+		type : EasingType,
+		gameState : GameState
 	) {
+		super(duration, gameState);
 		this.s = s;
 		this.e = e;
-		this.d = duration;
-		this.t = 0;
 		this.type = type;
-	}
-
-	public function update(dt : Float) {
-		t = t + dt;
-	}
-
-	public function get_isDone() {
-		return t >= d;
+		this.paused = true;
 	}
 
 	public function getValue() {
-		var x = t / d;
+		var x = (duration - cd) / duration;
 		var val : Float;
 		switch (type) {
 			case EASE_OUT_CUBIC:

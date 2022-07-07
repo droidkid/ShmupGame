@@ -1,5 +1,6 @@
 package game.en.enemy;
 
+import gmfk.gamestate.GameState;
 import gmfk.en.Entity;
 import gmfk.en.components.BoxCollider;
 import game.en.util.SpriteUtil;
@@ -17,11 +18,11 @@ class Enemy extends GameEntity {
 	private static var ALL_ENEMIES : Array<Enemy> = [];
 
 	var activationCd : Cd;
+	var flashCd : Cd;
 	var isActivated : Bool;
 	var entryEasing : Easings;
 	var health : Int;
 	var deathAnim : h2d.Anim;
-	var flashCd : Cd;
 
 	public function new(
 		bounds : h2d.col.Bounds,
@@ -30,13 +31,14 @@ class Enemy extends GameEntity {
 	) {
 		super();
 		this.bounds = bounds;
-		this.activationCd = new Cd(activationOffset);
+		this.activationCd = new Cd(activationOffset, GameState.get(IN_PLAY));
 		this.isActivated = false;
 		this.entryEasing = new Easings(
 			depths.get(Cdb.EnemyDepth.get(Staging).id.toString()),
 			targetY,
 			Cdb.Durations.get(EaseInDuration).seconds,
-			EASE_OUT_BACK
+			EASE_OUT_BACK,
+			GameState.get(IN_PLAY)
 		);
 		this.health = 3;
 		addComponent(
@@ -52,18 +54,19 @@ class Enemy extends GameEntity {
 		addComponent(BoxCollider.buildBoxCollider(this, collisionBounds));
 
 		deathAnim = new h2d.Anim(SpriteUtil.getAnimationTiles(EnemyDeath));
-		this.flashCd = new Cd(Cdb.Durations.get(EnemyHitFlash).seconds);
+		this.flashCd = new Cd(
+			Cdb.Durations.get(EnemyHitFlash).seconds,
+			GameState.get(IN_PLAY)
+		);
 		this.flashCd.pause();
 	}
 
 	override public function update(dt : Float) {
-		activationCd.update(dt);
-		flashCd.update(dt);
 		if (!isActivated && activationCd.isDone) {
 			isActivated = true;
+			entryEasing.resume();
 		}
 		if (isActivated && !entryEasing.isDone) {
-			entryEasing.update(dt);
 			this.bounds.y = entryEasing.getValue();
 		}
 		if (entryEasing.isDone) {}

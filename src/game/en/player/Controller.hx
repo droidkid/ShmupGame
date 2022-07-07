@@ -1,10 +1,11 @@
 package game.en.player;
 
-import game.en.util.BoundUtil;
-import gmfk.timer.Cd;
-import game.en.bullet.Bullet as B;
-import gmfk.en.Component;
 import Cdb;
+import game.en.bullet.Bullet as B;
+import game.en.util.BoundUtil;
+import gmfk.en.Component;
+import gmfk.gamestate.GameState;
+import gmfk.timer.Cd;
 
 class Controller extends Component {
 	private var moveRightButton = hxd.Key.RIGHT;
@@ -37,11 +38,10 @@ class Controller extends Component {
 		this.dx = 0;
 		this.dy = 0;
 		var duration = Cdb.Durations.get(PlayerFireRate).seconds;
-		this.bulletFireCd = new Cd(duration);
+		this.bulletFireCd = new Cd(duration, GameState.get(IN_PLAY));
 	}
 
 	override public function update(dt : Float) {
-		bulletFireCd.update(dt);
 		if (hxd.Key.isDown(moveRightButton)) {
 			dx = xVel * dt;
 		}

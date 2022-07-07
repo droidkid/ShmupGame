@@ -404,30 +404,30 @@
 			{ "id": "Bullet", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "EnemyFodder", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Player", "tileId": null, "color": 0, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
-		{ "identifier": "Bounds", "uid": 31, "values": [ { "id": "CameraBounds", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "PlayerBounds", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
+		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
+		{ "identifier": "Bounds", "uid": 31, "values": [ { "id": "CameraBounds", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "PlayerBounds", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
 		{ "identifier": "Velocities", "uid": 32, "values": [
 			{ "id": "BackgroundScroll", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Player", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "PlayerBullet", "tileId": null, "color": 0, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
+		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
 		{ "identifier": "Durations", "uid": 33, "values": [
 			{ "id": "BulletTtl", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "EaseInDuration", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "EnemyHitFlash", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "PlayerFireRate", "tileId": null, "color": 0, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
-		{ "identifier": "EnemyMovePattern", "uid": 34, "values": [{ "id": "Fixed", "tileId": null, "color": 0, "__tileSrcRect": null }], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
-		{ "identifier": "EnemyGroupShape", "uid": 35, "values": [ { "id": "HorizontalLine", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "Single", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
-		{ "identifier": "EnemyType", "uid": 36, "values": [{ "id": "EnemyFodder", "tileId": null, "color": 0, "__tileSrcRect": null }], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
+		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
+		{ "identifier": "EnemyMovePattern", "uid": 34, "values": [{ "id": "Fixed", "tileId": null, "color": 0, "__tileSrcRect": null }], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
+		{ "identifier": "EnemyGroupShape", "uid": 35, "values": [ { "id": "HorizontalLine", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "Single", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
+		{ "identifier": "EnemyType", "uid": 36, "values": [{ "id": "EnemyFodder", "tileId": null, "color": 0, "__tileSrcRect": null }], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
 		{ "identifier": "EnemyDepth", "uid": 37, "values": [
 			{ "id": "Layer_1", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Layer_2", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Layer_3", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Layer_4", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Staging", "tileId": null, "color": 0, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] },
-		{ "identifier": "Animations", "uid": 43, "values": [ { "id": "BulletFlash", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "EnemyDeath", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "2c654cf15c7844da00f5062d027bd948", "tags": [] }
+		], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] },
+		{ "identifier": "Animations", "uid": 43, "values": [ { "id": "BulletFlash", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "EnemyDeath", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": "castle.cdb", "externalFileChecksum": "0214b19542c7bf345f929730dfa2597a", "tags": [] }
 	], "levelFields": [] },
 	"levels": [
 		{
@@ -701,7 +701,7 @@
 							"height": 16,
 							"defUid": 40,
 							"px": [0,816],
-							"fieldInstances": [{ "__identifier": "LevelDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 41, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }]
+							"fieldInstances": [{ "__identifier": "LevelDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 41, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }]
 						},
 						{
 							"__identifier": "EnemyAreas",
@@ -2384,7 +2384,7 @@
 							"height": 16,
 							"defUid": 40,
 							"px": [0,816],
-							"fieldInstances": [{ "__identifier": "LevelDuration", "__value": 30, "__type": "Int", "__tile": null, "defUid": 41, "realEditorValues": [{ "id": "V_Int", "params": [30] }] }]
+							"fieldInstances": [{ "__identifier": "LevelDuration", "__value": 5, "__type": "Int", "__tile": null, "defUid": 41, "realEditorValues": [{ "id": "V_Int", "params": [5] }] }]
 						}
 					]
 				},
