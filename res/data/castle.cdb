@@ -66,6 +66,15 @@
 						24,
 						15
 					]
+				},
+				{
+					"id": "RoundBullet",
+					"sprite": {
+						"file": "../spritesheets/tiles.png",
+						"size": 16,
+						"x": 7,
+						"y": 1
+					}
 				}
 			],
 			"separators": [],

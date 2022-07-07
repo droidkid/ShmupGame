@@ -13,8 +13,6 @@ import gmfk.en.components.SimpleSprite;
 class Bullet extends GameEntity {
 	public var damage : Int;
 
-	var g : h2d.Graphics;
-
 	public function new(
 		position : h2d.col.Point,
 		velocity : Cdb.VelocitiesKind
@@ -26,8 +24,6 @@ class Bullet extends GameEntity {
 			position.y - bounds.height * 0.5
 		);
 		addComponent(Controller.buildBullet(this, velocity));
-		g = new h2d.Graphics(Layer.get(GAME).container);
-		g.
 		addComponent(
 			SimpleSprite.build(this, GAME, SpriteUtil.getTile(RoundBullet))
 		);
@@ -46,7 +42,6 @@ class Bullet extends GameEntity {
 
 	override function destroy() {
 		super.destroy();
-		g.clear();
 	}
 
 	public static function buildPlayerBullet(position : h2d.col.Point) {
