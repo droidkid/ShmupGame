@@ -7,6 +7,7 @@ class DebugHud extends Entity {
     var fpsBox: h2d.Text;
 	var timeBox : h2d.Text;
 	var gameStateBox : h2d.Text;
+	var numEntites : h2d.Text;
 
 	public function new() {
 		super();
@@ -14,6 +15,7 @@ class DebugHud extends Entity {
         this.fpsBox = createTextBox(0, 0);
 		this.timeBox = createTextBox(0, 16);
 		this.gameStateBox = createTextBox(0, 32);
+		this.numEntites = createTextBox(0, 48);
 	}
 
 	override function update(dt : Float) {
@@ -21,6 +23,7 @@ class DebugHud extends Entity {
         fpsBox.text = 'FPS = ${Math.ceil(hxd.Timer.fps())}';
 		timeBox.text = 'PlayTime: ${Math.ceil(Game.ME.eTime)} sec(s)';
 		gameStateBox.text = 'GameState: ${Std.string(Game.ME.gameState)}';
+		numEntites.text = 'Entities: ${Std.string(Entity.ALL.length)}';
 	}
 
 	private function createTextBox(x: Int, y: Int) {
