@@ -128,6 +128,7 @@ class Enemy extends GameEntity {
 				deathAnim.onAnimEnd = () -> {
 					Layer.get(GAME).container.removeChild(deathAnim);
 				};
+				GameState.get(IN_PLAY).tieAnimWithState(deathAnim);
 			}
 		}
 	}

@@ -60,6 +60,9 @@ class Controller extends Component {
 		flashClear.onAnimEnd = () -> {
 			flashClear.visible = false;
 		};
+
+		GameState.get(IN_PLAY).tieAnimWithState(flashAnim);
+		GameState.get(IN_PLAY).tieAnimWithState(flashClear);
 	}
 
 	override public function update(dt : Float) {

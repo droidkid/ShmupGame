@@ -37,10 +37,7 @@ class Game {
 		this.scene.update(dt);
 	}
 
-	public function onResize() {
-
-	}
-
+	public function onResize() {}
 
 	/* PRIVATE FUNCTIONS */
 	private function get_s2d() {
@@ -53,7 +50,13 @@ class Game {
 
 	private function set_gameState(value : GameState) : GameState {
 		// TODO(chesetti): Notify GameState changed.
+		if (this.gameState != null) {
+			this.gameState.onMovingOut();
+		}
 		this.gameState = value;
+		if (this.gameState != null) {
+			this.gameState.onMovingIn();
+		}
 		return this.gameState;
 	}
 
@@ -62,7 +65,7 @@ class Game {
 		ldtk = new Ldtk();
 	}
 
-	private function set_scene(scene: GameScene) : GameScene{
+	private function set_scene(scene : GameScene) : GameScene {
 		this.scene = scene;
 		scene.loadScene();
 		return scene;

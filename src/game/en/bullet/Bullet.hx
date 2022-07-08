@@ -1,5 +1,6 @@
 package game.en.bullet;
 
+import gmfk.gamestate.GameState;
 import aseprite.AseAnim;
 import gmfk.layers.Layer;
 import h2d.Anim;
@@ -25,7 +26,7 @@ class Bullet extends GameEntity {
 			position.x - bounds.width * 0.5,
 			position.y - bounds.height * 0.5
 		);
-		
+
 		addComponent(Controller.buildBullet(this, velocity));
 		addComponent(
 			SimpleSprite.build(this, GAME, SpriteUtil.getTile(RoundBullet))
@@ -53,16 +54,18 @@ class Bullet extends GameEntity {
 
 	override function handleCollision(other : Entity) {
 		if (Std.isOfType(other, Enemy)) {
-			var deathAnim = new h2d.Anim();
-			deathAnim.setPosition(
-				bounds.getCenter().x - bounds.width * 0.5,
-				bounds.getCenter().y - bounds.height * 0.5
+			var deathAnim = new AseAnim(
+				hxd.Res.spritesheets.explosion.toAseprite().getTag('bulletImpact')
 			);
-			deathAnim.play(SpriteUtil.getAnimationTiles(BulletFlash));
-			Layer.get(GAME).container.addChild(deathAnim);
+			deathAnim.setPosition(
+				bounds.getCenter().x - bounds.width,
+				bounds.getCenter().y - bounds.height-8 
+			);
 			deathAnim.onAnimEnd = () -> {
 				deathAnim.remove();
 			}
+			Layer.get(GAME).container.addChild(deathAnim);
+			GameState.get(IN_PLAY).tieAnimWithState(deathAnim);
 		}
 	}
 }
