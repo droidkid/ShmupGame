@@ -3,6 +3,7 @@
 -lib ldtk-haxe-api
 -lib deepnightLibs
 -lib castle
+-lib heaps-aseprite
 -D ldtkCastle=Cdb
 
 -js game.js

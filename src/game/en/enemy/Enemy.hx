@@ -1,5 +1,6 @@
 package game.en.enemy;
 
+import aseprite.AseAnim;
 import game.layers.GameLayer;
 import gmfk.gamestate.GameState;
 import gmfk.en.Entity;
@@ -23,7 +24,7 @@ class Enemy extends GameEntity {
 	var isActivated : Bool;
 	var entryEasing : Easings;
 	var health : Int;
-	var deathAnim : h2d.Anim;
+	var deathAnim : AseAnim;
 
 	public function new(
 		bounds : h2d.col.Bounds,
@@ -54,7 +55,10 @@ class Enemy extends GameEntity {
 		var collisionBounds = BoundUtil.fromCdbSpriteCollisionBox(EnemyFodder);
 		addComponent(BoxCollider.buildBoxCollider(this, collisionBounds));
 
-		deathAnim = new h2d.Anim(SpriteUtil.getAnimationTiles(EnemyDeath));
+		deathAnim = new AseAnim(
+			hxd.Res.spritesheets.explosion.toAseprite().getTag('explode')
+		);
+
 		this.flashCd = new Cd(
 			Cdb.Durations.get(EnemyHitFlash).seconds,
 			GameState.get(IN_PLAY)
@@ -117,8 +121,8 @@ class Enemy extends GameEntity {
 			if (health == 0) {
 				Layer.get(GAME).container.addChild(deathAnim);
 				deathAnim.setPosition(
-					bounds.getCenter().x - 8,
-					bounds.getCenter().y - 8 
+					bounds.getCenter().x - 16,
+					bounds.getCenter().y - 16
 				);
 				deathAnim.currentFrame = 0;
 				this.destroy();
