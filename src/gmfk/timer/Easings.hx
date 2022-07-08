@@ -1,8 +1,5 @@
 package gmfk.timer;
 
-import game.gamestates.GameStateNames;
-import gmfk.gamestate.GameState;
-
 enum EasingType {
 	EASE_OUT_CUBIC;
 	EASE_OUT_BOUNCE;

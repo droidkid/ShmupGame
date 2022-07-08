@@ -1,9 +1,9 @@
-import gmfk.systems.System;
-import game.scenes.Registry;
-import gmfk.layers.Layer;
-import gmfk.gamestate.GameState;
-import gmfk.scene.GameScene;
 import Cdb;
+import game.scenes.Registry;
+import gmfk.gamestate.GameState;
+import gmfk.layers.Layer;
+import gmfk.scene.GameScene;
+import gmfk.systems.System;
 
 class Game {
 	public static var ME : Game;

@@ -1,6 +1,5 @@
 package gmfk.scene;
 
-import gmfk.timer.Cd;
 import gmfk.systems.System;
 import gmfk.en.components.BoxCollider;
 import gmfk.layers.Layer;

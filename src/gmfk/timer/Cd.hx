@@ -1,7 +1,5 @@
 package gmfk.timer;
 
-import gmfk.gamestate.GameState;
-
 class Cd {
 	var duration : Float;
 	var cd : Float;
