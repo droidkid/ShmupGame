@@ -1,5 +1,7 @@
 package game.en.player;
 
+import gmfk.layers.Layer;
+import aseprite.AseAnim;
 import Cdb;
 import game.en.bullet.Bullet as B;
 import game.en.util.BoundUtil;
@@ -23,6 +25,9 @@ class Controller extends Component {
 	private var playerLimits : h2d.col.Bounds;
 	private var bulletFireCd : Cd;
 
+	public var flashAnim : AseAnim;
+	public var flashClear : AseAnim;
+
 	public function new(player : GameEntity) {
 		super();
 
@@ -39,6 +44,22 @@ class Controller extends Component {
 		this.dy = 0;
 		var duration = Cdb.Durations.get(PlayerFireRate).seconds;
 		this.bulletFireCd = new Cd(duration, GameState.get(IN_PLAY));
+
+		this.flashAnim = new AseAnim(
+			hxd.Res.spritesheets.explosion.toAseprite().getTag('flash_hold'),
+			Layer.get(GAME).container
+		);
+		flashAnim.visible = false;
+		flashAnim.loop = true;
+		this.flashClear = new AseAnim(
+			hxd.Res.spritesheets.explosion.toAseprite().getTag('flash_clear'),
+			Layer.get(GAME).container
+		);
+		flashClear.visible = false;
+		flashClear.loop = true;
+		flashClear.onAnimEnd = () -> {
+			flashClear.visible = false;
+		};
 	}
 
 	override public function update(dt : Float) {
@@ -60,7 +81,18 @@ class Controller extends Component {
 		dy = dy * yDamp;
 		dx = dx * xDamp;
 
+		flashAnim.setPosition(entity.bounds.x, entity.bounds.y - 24);
+		flashClear.setPosition(entity.bounds.x, entity.bounds.y - 24);
+
+		if (hxd.Key.isReleased(fireButton)) {
+			flashAnim.visible = false;
+			flashClear.currentFrame = 0;
+			flashClear.visible = true;
+
+		}
+
 		if (hxd.Key.isDown(fireButton)) {
+			 flashAnim.visible = true;
 			if (bulletFireCd.isDone) {
 				var bulletPos = entity.bounds.getCenter();
 				bulletPos.y -= 10;

@@ -5,7 +5,8 @@
 -lib castle
 -lib heaps-aseprite
 -D ldtkCastle=Cdb
+-lib hldx
 
--js game.js
+-hl game.hl
 -main App
 -debug

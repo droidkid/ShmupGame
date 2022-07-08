@@ -1,5 +1,6 @@
 package game.en.bullet;
 
+import aseprite.AseAnim;
 import gmfk.layers.Layer;
 import h2d.Anim;
 import game.en.enemy.Enemy;
@@ -12,6 +13,7 @@ import gmfk.en.components.SimpleSprite;
 
 class Bullet extends GameEntity {
 	public var damage : Int;
+	public var flashAnim : AseAnim;
 
 	public function new(
 		position : h2d.col.Point,
@@ -23,6 +25,7 @@ class Bullet extends GameEntity {
 			position.x - bounds.width * 0.5,
 			position.y - bounds.height * 0.5
 		);
+		
 		addComponent(Controller.buildBullet(this, velocity));
 		addComponent(
 			SimpleSprite.build(this, GAME, SpriteUtil.getTile(RoundBullet))
