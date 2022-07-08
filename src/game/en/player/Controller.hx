@@ -43,7 +43,7 @@ class Controller extends Component {
 		this.dx = 0;
 		this.dy = 0;
 		var duration = Cdb.Durations.get(PlayerFireRate).seconds;
-		this.bulletFireCd = new Cd(duration, GameState.get(IN_PLAY));
+		this.bulletFireCd = GameState.get(IN_PLAY).addTimer(duration);
 
 		this.flashAnim = new AseAnim(
 			hxd.Res.spritesheets.explosion.toAseprite().getTag('flash_hold'),
@@ -88,11 +88,10 @@ class Controller extends Component {
 			flashAnim.visible = false;
 			flashClear.currentFrame = 0;
 			flashClear.visible = true;
-
 		}
 
 		if (hxd.Key.isDown(fireButton)) {
-			 flashAnim.visible = true;
+			flashAnim.visible = true;
 			if (bulletFireCd.isDone) {
 				var bulletPos = entity.bounds.getCenter();
 				bulletPos.y -= 10;

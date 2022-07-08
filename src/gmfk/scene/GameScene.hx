@@ -12,7 +12,6 @@ class GameScene {
 	public function new() {};
 
 	public function update(dt : Float) {
-		Cd.updateAll(dt);
 		Layer.updateAll(dt);
 		Entity.updateAll(dt);
 		BoxCollider.checkCollisions();

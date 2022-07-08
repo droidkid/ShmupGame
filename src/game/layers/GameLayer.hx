@@ -16,7 +16,7 @@ class GameLayer extends Layer {
 
 	public function new(layerName : LayerNames) {
 		super(layerName);
-		this.shakeTimer = new Cd(0, GameState.get(IN_PLAY));
+		this.shakeTimer = GameState.get(IN_PLAY).addTimer(0);
 		this.dx = 0;
 		this.dy = 0;
 		this.shakeMag = 0;

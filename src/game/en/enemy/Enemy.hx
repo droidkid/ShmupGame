@@ -33,15 +33,15 @@ class Enemy extends GameEntity {
 	) {
 		super();
 		this.bounds = bounds;
-		this.activationCd = new Cd(activationOffset, GameState.get(IN_PLAY));
+		this.activationCd = GameState.get(IN_PLAY).addTimer(activationOffset);
 		this.isActivated = false;
-		this.entryEasing = new Easings(
-			depths.get(Cdb.EnemyDepth.get(Staging).id.toString()),
-			targetY,
-			Cdb.Durations.get(EaseInDuration).seconds,
-			EASE_OUT_BACK,
-			GameState.get(IN_PLAY)
-		);
+		this.entryEasing = GameState.get(IN_PLAY)
+			.addEasing(
+				depths.get(Cdb.EnemyDepth.get(Staging).id.toString()),
+				targetY,
+				Cdb.Durations.get(EaseInDuration).seconds,
+				EASE_OUT_BACK
+			);
 		this.health = 3;
 		addComponent(
 			SimpleSprite.buildRotated(
@@ -59,10 +59,8 @@ class Enemy extends GameEntity {
 			hxd.Res.spritesheets.explosion.toAseprite().getTag('explode')
 		);
 
-		this.flashCd = new Cd(
-			Cdb.Durations.get(EnemyHitFlash).seconds,
-			GameState.get(IN_PLAY)
-		);
+		this.flashCd = GameState.get(IN_PLAY)
+			.addTimer(Cdb.Durations.get(EnemyHitFlash).seconds);
 		this.flashCd.pause();
 	}
 

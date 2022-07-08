@@ -11,7 +11,7 @@ class LevelManager extends System {
 
 	public function new() {
 		super();
-		lvlSwitchCd = new Cd(2, GameState.get(IN_PLAY));
+		lvlSwitchCd = GameState.get(IN_PLAY).addTimer(2);
 		lvlSwitchCd.pause();
 	}
 

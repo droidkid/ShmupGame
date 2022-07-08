@@ -18,10 +18,9 @@ class Easings extends Cd {
 		s : Float,
 		e : Float,
 		duration : Float,
-		type : EasingType,
-		gameState : GameState
+		type : EasingType
 	) {
-		super(duration, gameState);
+		super(duration);
 		this.s = s;
 		this.e = e;
 		this.type = type;
