@@ -1,15 +1,14 @@
 package gmfk.en;
 
 class Component {
-	public var entity(get, default): Entity;
-	@:isVar public var enabled(get, set): Bool;
+	public var entity(get, default) : Entity;
+	@:isVar public var enabled(get, set) : Bool;
 
 	public function new() {
 		enabled = true;
 	}
 
-	public function init() {
-	}
+	public function init() {}
 
 	public function update(dt : Float) {}
 
@@ -25,5 +24,4 @@ class Component {
 	private function get_enabled() {
 		return enabled;
 	};
-
 }

@@ -2,7 +2,6 @@ package game.en.bullet;
 
 import Cdb;
 import gmfk.en.Component;
-import gmfk.gamestate.GameState;
 import gmfk.timer.Cd;
 
 class Controller extends Component {

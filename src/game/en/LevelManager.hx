@@ -1,6 +1,5 @@
 package game.en;
 
-import gmfk.gamestate.GameState;
 import gmfk.timer.Cd;
 import game.scenes.BaseScene;
 import game.en.enemy.Enemy;

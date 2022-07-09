@@ -6,6 +6,7 @@ import gmfk.scene.GameScene;
 
 class GmfkGame {
 	public static var ME : GmfkGame;
+
 	public var layers : Array<Layer>;
 
 	public var s2d(get, null) : h2d.Scene;
@@ -37,7 +38,7 @@ class GmfkGame {
 
 	public function onResize() {}
 
-	public function registerLayer(layer : Layer) {
+	public function addLayer(layer : Layer) {
 		layers.push(layer);
 	}
 

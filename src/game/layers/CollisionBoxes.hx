@@ -1,9 +1,9 @@
 package game.layers;
 
+import Cdb;
 import game.scenes.BaseScene;
 import gmfk.en.components.BoxCollider;
 import gmfk.layers.Layer;
-import Cdb;
 
 class CollisionBoxes extends Layer {
 	var debugGraphics : h2d.Graphics;

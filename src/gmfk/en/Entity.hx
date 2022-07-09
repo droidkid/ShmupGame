@@ -53,7 +53,7 @@ class Entity {
 		return null;
 	}
 
-	public function handleCollision(other: Entity) {}
+	public function handleCollision(other : Entity) {}
 
 	public static function updateAll(dt : Float) {
 		for (entity in ALL) {
@@ -72,5 +72,4 @@ class Entity {
 	public static function clear() {
 		ALL.resize(0);
 	}
-
 }
