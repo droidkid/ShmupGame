@@ -1,6 +1,5 @@
 package game.layers;
 
-import gmfk.gamestate.GameState;
 import Cdb;
 
 class Background extends GameLayer {

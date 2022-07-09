@@ -11,7 +11,7 @@ class Player extends GameEntity {
 		this.bounds = BoundUtil.fromLdtk(ldtkLevel.l_Entities.all_Player[0]);
 
 		addComponent(
-			SimpleSprite.build(this, GAME, SpriteUtil.getTile(Player))
+			SimpleSprite.build(this, G.GAME, SpriteUtil.getTile(Player))
 		);
 		addComponent(Controller.buildController(this));
 		addComponent(

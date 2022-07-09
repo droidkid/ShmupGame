@@ -1,6 +1,5 @@
 package gmfk.en.components;
 
-import game.layers.LayerNames.LayerNames;
 import gmfk.layers.Layer;
 
 class SimpleSprite extends Component {
@@ -22,19 +21,19 @@ class SimpleSprite extends Component {
 
 	public static function build(
 		entity : Entity,
-		layer : LayerNames,
+		layer : Layer,
 		tile : h2d.Tile
 	) {
-		return new SimpleSprite(Layer.get(layer), entity, tile, 0);
+		return new SimpleSprite(layer, entity, tile, 0);
 	}
 
 	public static function buildRotated(
 		entity : Entity,
-		layer : LayerNames,
+		layer : Layer,
 		tile : h2d.Tile,
 		angle : Float
 	) {
-		return new SimpleSprite(Layer.get(layer), entity, tile, angle);
+		return new SimpleSprite(layer, entity, tile, angle);
 	}
 
 	override public function update(dt : Float) {

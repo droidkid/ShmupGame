@@ -1,13 +1,11 @@
 package game.scenes;
 
+import Cdb;
+import game.en.DebugHud;
 import game.en.LevelManager;
-import gmfk.gamestate.GameState;
 import game.en.enemy.Enemy;
 import game.en.player.Player;
-import game.en.DebugHud;
-import gmfk.layers.Layer;
 import gmfk.scene.GameScene;
-import Cdb;
 
 class BaseScene extends GameScene {
 	var g : h2d.Graphics;
@@ -18,15 +16,14 @@ class BaseScene extends GameScene {
 	override function loadScene() {
 		super.loadScene();
 		hud = new DebugHud();
-		g = new h2d.Graphics(Layer.get(GAME).container);
+		g = new h2d.Graphics(G.GAME.container);
 
 		bg = getLdtkLevel().l_Background.render();
-		Layer.get(BACKGROUND).container.addChild(bg);
+		G.BACKGROUND.container.addChild(bg);
 		this.bgScroll = Cdb.Velocities.get(BackgroundScroll).ySpeed;
 
 		new Player();
 		Enemy.initAll(getLdtkLevel(), getLevelDuration());
-
 		new LevelManager();
 	}
 

@@ -1,14 +1,11 @@
 package game.en.bullet;
 
-import gmfk.gamestate.GameState;
-import aseprite.AseAnim;
-import gmfk.layers.Layer;
-import h2d.Anim;
-import game.en.enemy.Enemy;
-import gmfk.en.Entity;
 import Cdb;
+import aseprite.AseAnim;
+import game.en.enemy.Enemy;
 import game.en.util.BoundUtil;
 import game.en.util.SpriteUtil;
+import gmfk.en.Entity;
 import gmfk.en.components.BoxCollider;
 import gmfk.en.components.SimpleSprite;
 
@@ -29,7 +26,7 @@ class Bullet extends GameEntity {
 
 		addComponent(Controller.buildBullet(this, velocity));
 		addComponent(
-			SimpleSprite.build(this, GAME, SpriteUtil.getTile(RoundBullet))
+			SimpleSprite.build(this, G.GAME, SpriteUtil.getTile(RoundBullet))
 		);
 		addComponent(
 			BoxCollider.buildBoxCollider(
@@ -64,7 +61,7 @@ class Bullet extends GameEntity {
 			deathAnim.onAnimEnd = () -> {
 				deathAnim.remove();
 			}
-			Layer.get(GAME).container.addChild(deathAnim);
+			G.GAME.container.addChild(deathAnim);
 			G.IN_PLAY.tieAnimWithState(deathAnim);
 		}
 	}

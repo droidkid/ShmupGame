@@ -1,19 +1,16 @@
 package game.en.enemy;
 
+import Cdb;
 import aseprite.AseAnim;
-import game.layers.GameLayer;
-import gmfk.gamestate.GameState;
+import game.en.bullet.Bullet as B;
+import game.en.util.BoundUtil;
+import game.en.util.SpriteUtil;
 import gmfk.en.Entity;
 import gmfk.en.components.BoxCollider;
-import game.en.util.SpriteUtil;
 import gmfk.en.components.SimpleSprite;
-import gmfk.timer.Easings;
 import gmfk.timer.Cd;
-import gmfk.layers.Layer;
-import game.en.util.BoundUtil;
-import game.en.bullet.Bullet as B;
+import gmfk.timer.Easings;
 import haxe.ds.StringMap;
-import Cdb;
 
 class Enemy extends GameEntity {
 	private static var depths : StringMap<Float>;
@@ -45,7 +42,7 @@ class Enemy extends GameEntity {
 		addComponent(
 			SimpleSprite.buildRotated(
 				this,
-				GAME,
+				G.GAME,
 				SpriteUtil.getTile(EnemyFodder),
 				Math.PI
 			)
@@ -117,7 +114,7 @@ class Enemy extends GameEntity {
 			}
 
 			if (health == 0) {
-				Layer.get(GAME).container.addChild(deathAnim);
+				G.GAME.container.addChild(deathAnim);
 				deathAnim.setPosition(
 					bounds.getCenter().x - 16,
 					bounds.getCenter().y - 16
@@ -126,7 +123,7 @@ class Enemy extends GameEntity {
 				this.destroy();
 				deathAnim.loop = false;
 				deathAnim.onAnimEnd = () -> {
-					Layer.get(GAME).container.removeChild(deathAnim);
+					G.GAME.container.removeChild(deathAnim);
 				};
 				G.IN_PLAY.tieAnimWithState(deathAnim);
 			}

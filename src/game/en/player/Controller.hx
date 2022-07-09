@@ -1,12 +1,10 @@
 package game.en.player;
 
-import gmfk.layers.Layer;
-import aseprite.AseAnim;
 import Cdb;
+import aseprite.AseAnim;
 import game.en.bullet.Bullet as B;
 import game.en.util.BoundUtil;
 import gmfk.en.Component;
-import gmfk.gamestate.GameState;
 import gmfk.timer.Cd;
 
 class Controller extends Component {
@@ -47,13 +45,13 @@ class Controller extends Component {
 
 		this.flashAnim = new AseAnim(
 			hxd.Res.spritesheets.explosion.toAseprite().getTag('flash_hold'),
-			Layer.get(GAME).container
+			G.GAME.container
 		);
 		flashAnim.visible = false;
 		flashAnim.loop = true;
 		this.flashClear = new AseAnim(
 			hxd.Res.spritesheets.explosion.toAseprite().getTag('flash_clear'),
-			Layer.get(GAME).container
+			G.GAME.container
 		);
 		flashClear.visible = false;
 		flashClear.loop = true;

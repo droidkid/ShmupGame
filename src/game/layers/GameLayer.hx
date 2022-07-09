@@ -1,10 +1,9 @@
 package game.layers;
 
-import gmfk.timer.Cd;
+import Cdb;
 import game.scenes.BaseScene;
 import gmfk.layers.Layer;
-import gmfk.gamestate.GameState;
-import Cdb;
+import gmfk.timer.Cd;
 
 class GameLayer extends Layer {
 	var shakeTimer : Cd;
@@ -14,8 +13,8 @@ class GameLayer extends Layer {
 	var damp : Float;
 	var cameraConfig : Ldtk.Entity_Camera;
 
-	public function new(layerName : LayerNames) {
-		super(layerName);
+	public function new(idx : Int) {
+		super(idx);
 		this.shakeTimer = G.IN_PLAY.addTimer(0);
 		this.dx = 0;
 		this.dy = 0;
@@ -61,7 +60,7 @@ class GameLayer extends Layer {
 		);
 	}
 
-	public function shake(mag : Float, dur:Float, damp : Float) {
+	public function shake(mag : Float, dur : Float, damp : Float) {
 		shakeTimer.resetDuration(dur);
 		this.shakeMag = Math.max(shakeMag, mag);
 		this.damp = Math.max(this.damp, damp);
