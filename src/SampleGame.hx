@@ -2,11 +2,11 @@ import Cdb;
 import game.gamestates.InPlay;
 import game.gamestates.Paused;
 import game.layers.Background;
+import game.layers.CollisionBoxes;
 import game.layers.GameLayer;
-import gmfk.layers.Layer;
-import gmfk.layers.CollisionBoxes;
 import game.scenes.Level0;
 import gmfk.gamestate.GameState;
+import gmfk.layers.Layer;
 
 class SampleGame extends gmfk.GmfkGame {
 	public static var ME : SampleGame;

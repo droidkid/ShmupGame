@@ -1,6 +1,5 @@
 package gmfk.en;
 
-import gmfk.gamestate.GameState;
 import haxe.iterators.ArrayIterator;
 
 class Entity {
@@ -10,7 +9,6 @@ class Entity {
 	var isMarkedForDestruction : Bool;
 
 	public var layer(default, null) : h2d.Object;
-	public var game(get, never) : GmfkGame;
 	public var bounds : h2d.col.Bounds;
 
 	public function new() {
@@ -22,7 +20,7 @@ class Entity {
 	}
 
 	public function update(dt : Float) {
-		if (game.gameState != G.IN_PLAY) {
+		if (G.gameState != G.IN_PLAY) {
 			return;
 		}
 		for (component in components) {
@@ -75,7 +73,4 @@ class Entity {
 		ALL.resize(0);
 	}
 
-	inline function get_game() {
-		return G;
-	}
 }

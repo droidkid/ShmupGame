@@ -1,7 +1,7 @@
-package gmfk.layers;
+package game.layers;
 
-import gmfk.en.components.BoxCollider;
 import game.scenes.BaseScene;
+import gmfk.en.components.BoxCollider;
 import gmfk.layers.Layer;
 import Cdb;
 

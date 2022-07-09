@@ -5,6 +5,7 @@ import gmfk.layers.Layer;
 import gmfk.scene.GameScene;
 
 class GmfkGame {
+	public static var ME : GmfkGame;
 	public var layers : Array<Layer>;
 
 	public var s2d(get, null) : h2d.Scene;
@@ -13,6 +14,7 @@ class GmfkGame {
 	@:isVar public var gameState(get, set) : GameState;
 
 	public function new(s2d : h2d.Scene) {
+		ME = this;
 		this.s2d = s2d;
 		s2d.camera.visible = false;
 
