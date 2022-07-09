@@ -1,8 +1,6 @@
 package game.layers;
 
 import gmfk.gamestate.GameState;
-import game.scenes.BaseScene;
-import gmfk.layers.Layer;
 import Cdb;
 
 class Background extends GameLayer {

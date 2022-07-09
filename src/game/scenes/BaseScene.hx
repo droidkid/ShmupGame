@@ -1,5 +1,6 @@
 package game.scenes;
 
+import game.en.LevelManager;
 import gmfk.gamestate.GameState;
 import game.en.enemy.Enemy;
 import game.en.player.Player;
@@ -11,7 +12,7 @@ import Cdb;
 class BaseScene extends GameScene {
 	var g : h2d.Graphics;
 	var hud : DebugHud;
-	var bg: h2d.Object;
+	var bg : h2d.Object;
 	var bgScroll : Float;
 
 	override function loadScene() {
@@ -25,6 +26,8 @@ class BaseScene extends GameScene {
 
 		new Player();
 		Enemy.initAll(getLdtkLevel(), getLevelDuration());
+
+		new LevelManager();
 	}
 
 	override function update(dt : Float) {

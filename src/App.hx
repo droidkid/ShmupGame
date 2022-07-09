@@ -4,8 +4,6 @@ class App extends hxd.App {
 
 	override function init() {
 		super.init();
-		hxd.Res.initEmbed();
-
         game = new Game(s2d);
 	}
 

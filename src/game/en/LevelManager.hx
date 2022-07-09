@@ -1,12 +1,11 @@
-package game.systems;
+package game.en;
 
 import gmfk.gamestate.GameState;
 import gmfk.timer.Cd;
 import game.scenes.BaseScene;
 import game.en.enemy.Enemy;
-import gmfk.systems.System;
 
-class LevelManager extends System {
+class LevelManager extends gmfk.en.Entity {
 	var lvlSwitchCd : Cd;
 
 	public function new() {

@@ -2,7 +2,6 @@ package gmfk.gamestate;
 
 import aseprite.AseAnim;
 import game.gamestates.GameStateNames;
-import game.gamestates.Registry;
 import gmfk.timer.Cd;
 import gmfk.timer.Easings;
 
@@ -63,14 +62,6 @@ class GameState {
 
 	public function toString() : String {
 		return name;
-	}
-
-	public static function initGameStates() {
-		Registry.initGameStates();
-	}
-
-	public static function getInitialState() : GameState {
-		return Registry.getInitialState();
 	}
 
 	public static function get(gameStateName : GameStateNames) {

@@ -1,10 +1,9 @@
 package game.en;
 
-import game.layers.Background;
 import game.layers.GameLayer;
-import gmfk.layers.Layer;
 import game.scenes.BaseScene;
 import gmfk.en.Entity;
+import gmfk.layers.Layer;
 
 class GameEntity extends Entity {
 	public var ldtkLevel(get, null) : Ldtk.Ldtk_Level;
