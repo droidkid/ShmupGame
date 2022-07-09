@@ -1,21 +1,14 @@
 package gmfk.gamestate;
 
 import aseprite.AseAnim;
-import game.gamestates.GameStateNames;
 import gmfk.timer.Cd;
 import gmfk.timer.Easings;
 
 class GameState {
-	public static var ALL : Array<GameState> = [];
-
-	var name : String;
-
 	public var timers : Array<Cd>;
 	public var animations : Array<{anim : AseAnim, status : Bool}>;
 
-	public function new(gameStateName : GameStateNames) {
-		ALL.insert(gameStateName.getIndex(), this);
-		name = Std.string(gameStateName);
+	public function new() {
 		timers = [];
 		animations = [];
 	}
@@ -58,13 +51,5 @@ class GameState {
 		for (anim in animations) {
 			anim.anim.pause = anim.status;
 		}
-	}
-
-	public function toString() : String {
-		return name;
-	}
-
-	public static function get(gameStateName : GameStateNames) {
-		return ALL[gameStateName.getIndex()];
 	}
 }

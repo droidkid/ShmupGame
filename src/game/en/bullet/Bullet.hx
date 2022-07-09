@@ -65,7 +65,7 @@ class Bullet extends GameEntity {
 				deathAnim.remove();
 			}
 			Layer.get(GAME).container.addChild(deathAnim);
-			GameState.get(IN_PLAY).tieAnimWithState(deathAnim);
+			G.IN_PLAY.tieAnimWithState(deathAnim);
 		}
 	}
 }

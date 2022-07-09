@@ -13,8 +13,7 @@ class Controller extends Component {
 	public function new(entity : Bullet, velocity : Cdb.VelocitiesKind) {
 		super();
 		this.entity = entity;
-		this.ttl = GameState.get(IN_PLAY)
-			.addTimer(Cdb.Durations.get(BulletTtl).seconds);
+		this.ttl = G.IN_PLAY.addTimer(Cdb.Durations.get(BulletTtl).seconds);
 		this.xVel = Cdb.Velocities.get(velocity).xSpeed;
 		this.yVel = Cdb.Velocities.get(velocity).ySpeed;
 	}

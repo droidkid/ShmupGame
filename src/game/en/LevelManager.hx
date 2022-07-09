@@ -10,13 +10,13 @@ class LevelManager extends gmfk.en.Entity {
 
 	public function new() {
 		super();
-		lvlSwitchCd = GameState.get(IN_PLAY).addTimer(2);
+		lvlSwitchCd = G.IN_PLAY.addTimer(2);
 		lvlSwitchCd.pause();
 	}
 
 	override function update(dt : Float) {
 		if (Enemy.allCleared() && lvlSwitchCd.isPaused()) {
-			var sc = cast(Game.ME.scene, BaseScene);
+			var sc = cast(G.scene, BaseScene);
 			lvlSwitchCd.resume();
 			lvlSwitchCd.onDone = () -> {
 				sc.advanceLevel();

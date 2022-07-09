@@ -13,7 +13,7 @@ class Background extends GameLayer {
 
 	override function updateCamera(dt : Float) {
 		super.updateCamera(dt);
-		if (Game.ME.gameState == GameState.get(IN_PLAY)) {
+		if (G.gameState == G.IN_PLAY) {
 			camera.move(0, dt * yVel);
 		}
 	}

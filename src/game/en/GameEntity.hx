@@ -9,7 +9,7 @@ class GameEntity extends Entity {
 	public var ldtkLevel(get, null) : Ldtk.Ldtk_Level;
 
 	private function get_ldtkLevel() : Ldtk.Ldtk_Level {
-        return cast(Game.ME.scene, BaseScene).getLdtkLevel();
+        return cast(G.scene, BaseScene).getLdtkLevel();
     }
 
 	public function screenshake(mag : Float, dur:Float, damp : Float) {

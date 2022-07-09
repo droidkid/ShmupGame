@@ -10,7 +10,7 @@ class Entity {
 	var isMarkedForDestruction : Bool;
 
 	public var layer(default, null) : h2d.Object;
-	public var game(get, never) : Game;
+	public var game(get, never) : GmfkGame;
 	public var bounds : h2d.col.Bounds;
 
 	public function new() {
@@ -22,7 +22,7 @@ class Entity {
 	}
 
 	public function update(dt : Float) {
-		if (game.gameState != GameState.get(IN_PLAY)) {
+		if (game.gameState != G.IN_PLAY) {
 			return;
 		}
 		for (component in components) {
@@ -76,6 +76,6 @@ class Entity {
 	}
 
 	inline function get_game() {
-		return Game.ME;
+		return G;
 	}
 }

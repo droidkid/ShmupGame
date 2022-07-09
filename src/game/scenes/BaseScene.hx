@@ -32,13 +32,13 @@ class BaseScene extends GameScene {
 
 	override function update(dt : Float) {
 		super.update(dt);
-		if (Game.ME.gameState == GameState.get(IN_PLAY)) {
+		if (G.gameState == G.IN_PLAY) {
 			bg.y += bgScroll * dt;
 		}
 	}
 
 	public function getLdtkLevel() : Ldtk.Ldtk_Level {
-		return Game.ME.ldtk.all_levels.Level_0;
+		return G.ldtk.all_levels.Level_0;
 	}
 
 	public function getLevelDuration() : Float {

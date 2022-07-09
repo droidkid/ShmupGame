@@ -1,10 +1,10 @@
 class App extends hxd.App {
 
-    var game : Game;
+    var game : SampleGame;
 
 	override function init() {
 		super.init();
-        game = new Game(s2d);
+        game = new SampleGame(s2d);
 	}
 
     override function update(dt: Float) {

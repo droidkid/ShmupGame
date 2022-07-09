@@ -16,11 +16,11 @@ class Layer {
 		ALL.insert(idx, this);
 
 		this.container = new h2d.Object();
-		Game.ME.s2d.add(container, idx);
+		G.s2d.add(container, idx);
 
 		camera = new h2d.Camera();
 		camera.layerVisible = (i) -> i == idx;
-		Game.ME.s2d.addCamera(camera, idx);
+		G.s2d.addCamera(camera, idx);
 	}
 
 	public function initCamera() {}

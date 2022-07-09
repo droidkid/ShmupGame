@@ -16,7 +16,7 @@ class GameLayer extends Layer {
 
 	public function new(layerName : LayerNames) {
 		super(layerName);
-		this.shakeTimer = GameState.get(IN_PLAY).addTimer(0);
+		this.shakeTimer = G.IN_PLAY.addTimer(0);
 		this.dx = 0;
 		this.dy = 0;
 		this.shakeMag = 0;
@@ -29,7 +29,7 @@ class GameLayer extends Layer {
 
 	override function updateCamera(dt : Float) {
 		super.updateCamera(dt);
-		if (Game.ME.gameState != GameState.get(IN_PLAY)) {
+		if (G.gameState != G.IN_PLAY) {
 			return;
 		}
 		dx = (Math.random() < 0.5) ? shakeMag : -shakeMag;
@@ -46,11 +46,11 @@ class GameLayer extends Layer {
 	}
 
 	override function resizeCamera() {
-		var s2d = Game.ME.s2d;
+		var s2d = G.s2d;
 		var cameraScale = Math.ceil(
 			s2d.height / Cdb.Bounds.get(CameraBounds).wid
 		);
-		cameraConfig = cast(Game.ME.scene, BaseScene).getCameraConfig();
+		cameraConfig = cast(G.scene, BaseScene).getCameraConfig();
 		camera.setScale(cameraScale, cameraScale);
 		camera.setPosition(cameraConfig.pixelX, cameraConfig.pixelY);
 		camera.setViewport(

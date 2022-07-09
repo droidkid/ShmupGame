@@ -42,11 +42,11 @@ class CollisionBoxes extends Layer {
 	}
 
 	override function resizeCamera() {
-		var s2d = Game.ME.s2d;
+		var s2d = G.s2d;
 		var cameraScale = Math.ceil(
 			s2d.height / Cdb.Bounds.get(CameraBounds).wid
 		);
-		var cameraConfig = cast(Game.ME.scene, BaseScene).getCameraConfig();
+		var cameraConfig = cast(G.scene, BaseScene).getCameraConfig();
 		camera.setScale(cameraScale, cameraScale);
 		camera.setPosition(cameraConfig.pixelX, cameraConfig.pixelY);
 		camera.setViewport(

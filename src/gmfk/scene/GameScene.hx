@@ -18,6 +18,6 @@ class GameScene {
 	};
 
 	private function get_s2d() {
-		return Game.ME.s2d;
+		return G.s2d;
 	}
 }

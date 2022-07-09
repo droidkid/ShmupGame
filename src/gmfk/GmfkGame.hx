@@ -6,7 +6,6 @@ import gmfk.scene.GameScene;
 
 class GmfkGame {
 	public var layers : Array<Layer>;
-	public var gameStates : Array<GameState>;
 
 	public var s2d(get, null) : h2d.Scene;
 	public var eTime(default, null) : Float;
@@ -19,7 +18,6 @@ class GmfkGame {
 
 		this.eTime = 0;
 		layers = [];
-		gameStates = [];
 	}
 
 	public function update(dt : Float) {
@@ -36,10 +34,6 @@ class GmfkGame {
 	}
 
 	public function onResize() {}
-
-	public function registerGameState(gameState : GameState) {
-		gameStates.push(gameState);
-	}
 
 	public function registerLayer(layer : Layer) {
 		layers.push(layer);

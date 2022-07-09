@@ -43,7 +43,7 @@ class Controller extends Component {
 		this.dx = 0;
 		this.dy = 0;
 		var duration = Cdb.Durations.get(PlayerFireRate).seconds;
-		this.bulletFireCd = GameState.get(IN_PLAY).addTimer(duration);
+		this.bulletFireCd = G.IN_PLAY.addTimer(duration);
 
 		this.flashAnim = new AseAnim(
 			hxd.Res.spritesheets.explosion.toAseprite().getTag('flash_hold'),
@@ -61,8 +61,8 @@ class Controller extends Component {
 			flashClear.visible = false;
 		};
 
-		GameState.get(IN_PLAY).tieAnimWithState(flashAnim);
-		GameState.get(IN_PLAY).tieAnimWithState(flashClear);
+		G.IN_PLAY.tieAnimWithState(flashAnim);
+		G.IN_PLAY.tieAnimWithState(flashClear);
 	}
 
 	override public function update(dt : Float) {

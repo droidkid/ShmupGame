@@ -8,8 +8,12 @@ import gmfk.layers.CollisionBoxes;
 import game.scenes.Level0;
 import gmfk.gamestate.GameState;
 
-class Game extends gmfk.GmfkGame {
-	public static var ME : Game;
+class SampleGame extends gmfk.GmfkGame {
+	public static var ME : SampleGame;
+
+	public var IN_PLAY: InPlay;
+	public var PAUSED: Paused;
+	public var WON: GameState;
 
 	public var ldtk(default, null) : Ldtk;
 
@@ -18,16 +22,16 @@ class Game extends gmfk.GmfkGame {
 		initResources();
 		super(s2d);
 
-		registerGameState(new InPlay(IN_PLAY));
-		registerGameState(new Paused(PAUSED));
-		registerGameState(new GameState(WON));
+		IN_PLAY = new InPlay();
+		PAUSED = new Paused();
+		WON = new GameState();
 
 		registerLayer(new Background(BACKGROUND));
 		registerLayer(new GameLayer(GAME));
 		registerLayer(new Layer(HUD));
 		registerLayer(new CollisionBoxes(COLLISION_BOXES));
 
-		this.gameState = GameState.get(PAUSED);
+		this.gameState = PAUSED;
 		this.scene = new Level0();
 	}
 
