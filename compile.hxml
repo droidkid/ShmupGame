@@ -4,6 +4,7 @@
 -lib deepnightLibs
 -lib castle
 -lib heaps-aseprite
+-lib gmfk
 -D ldtkCastle=Cdb
 
 -js game.js

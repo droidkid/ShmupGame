@@ -1,5 +1,7 @@
 package game.scenes;
 
+import gmfk.en.components.BoxCollider;
+import gmfk.en.Entity;
 import Cdb;
 import game.en.DebugHud;
 import game.en.LevelManager;
@@ -30,6 +32,8 @@ class BaseScene extends GameScene {
 	override function update(dt : Float) {
 		super.update(dt);
 		if (G.gameState == G.IN_PLAY) {
+			Entity.updateAll(dt);
+			BoxCollider.checkCollisions();
 			bg.y += bgScroll * dt;
 		}
 	}
